@@ -1,4 +1,4 @@
-// macos-clean web landing page & interactive preview
+// macOS Clean web landing page & interactive preview
 // Faithfully ports Bubbl (App/Mascot/*), 26 categories (CleanupCategory.swift),
 // and the 5-section SwiftUI window experience.
 
@@ -1543,7 +1543,7 @@ function initMacWindowDemo(heroBubbl) {
         <div class="fda-inline-banner">
           <div>
             <strong>macOS blocked access to 3 folders</strong>
-            <p>Give macos-clean Full Disk Access in System Settings to inspect ~/Library/Caches and ~/.Trash.</p>
+            <p>Give macOS Clean Full Disk Access in System Settings to inspect ~/Library/Caches and ~/.Trash.</p>
           </div>
           <button type="button" class="mac-tb-btn" id="inline-open-fda">Open System Settings</button>
         </div>
@@ -2291,7 +2291,7 @@ function initMacWindowDemo(heroBubbl) {
       <p>macOS hides many caches, logs and app leftovers from apps without Full Disk Access. In this interactive preview, click below to simulate granting access.</p>
       <ol style="margin:0 0 12px 18px;padding:0;font-size:0.8rem;color:var(--text-secondary)">
         <li>Click <strong>Open System Settings</strong>.</li>
-        <li>Turn on <code>macos-clean</code> in Full Disk Access.</li>
+        <li>Turn on <code>macOS Clean</code> in Full Disk Access.</li>
         <li>Choose <strong>Quit &amp; Reopen</strong> when macOS asks.</li>
       </ol>
       <div class="mac-modal-actions">
