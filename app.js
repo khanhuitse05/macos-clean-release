@@ -1180,48 +1180,21 @@ function initCopyButtons() {
   });
 }
 
-// MARK: - 26-Category Explorer
+// MARK: - "What it cleans" chip cloud
 
 function initCategoryExplorer() {
   const grid = document.getElementById('categories-grid');
-  const searchInput = document.getElementById('category-search');
   const filterBtns = document.querySelectorAll('#category-filters .filter-pill');
+  if (!grid) return;
   let activeFilter = 'all';
 
   const render = () => {
-    const q = searchInput.value.trim().toLowerCase();
-    const filtered = ALL_CATEGORIES.filter((cat) => {
-      const matchesGroup =
-        activeFilter === 'all' ||
-        (activeFilter === 'safe' && cat.safety === 'safe') ||
-        (activeFilter === 'caution' && cat.safety === 'caution') ||
-        cat.group === activeFilter;
-
-      const matchesQuery =
-        !q ||
-        cat.name.toLowerCase().includes(q) ||
-        cat.details.toLowerCase().includes(q) ||
-        cat.paths.some((p) => p.toLowerCase().includes(q));
-
-      return matchesGroup && matchesQuery;
-    });
-
-    if (!filtered.length) {
-      grid.innerHTML = `<p style="color:var(--text-secondary);grid-column:1/-1;margin:8px 0;">No categories match "${escapeHtml(q)}".</p>`;
-      return;
-    }
-
+    const filtered = ALL_CATEGORIES.filter(
+      (cat) => activeFilter === 'all' || cat.group === activeFilter
+    );
     grid.innerHTML = filtered
       .map(
-        (cat) => `
-      <article class="explorer-card">
-        <div class="explorer-card-head">
-          <h4>${escapeHtml(cat.name)}</h4>
-          <span class="safety-badge ${cat.safety === 'safe' ? 'badge-safe' : 'badge-caution'}">${cat.safety}</span>
-        </div>
-        <div class="explorer-paths">${cat.paths.map((p) => escapeHtml(p)).join(' · ')}</div>
-        <p>${escapeHtml(cat.details)}</p>
-      </article>`
+        (cat) => `<span class="cat-chip" title="${escapeHtml(cat.details)}"><i class="dot-${cat.safety}"></i>${escapeHtml(cat.name)}</span>`
       )
       .join('');
   };
@@ -1235,7 +1208,6 @@ function initCategoryExplorer() {
     });
   });
 
-  searchInput.addEventListener('input', render);
   render();
 }
 
@@ -1249,14 +1221,14 @@ function initPlayground(pgBubbl) {
   const canvas = document.getElementById('playground-bubbl-canvas');
 
   const labels = {
-    idle: 'Mood: Idle (M1) — gentle float & blink',
-    scanning: 'Mood: Scanning (M2) — sweeping glint & trail',
-    junkFound: 'Mood: Junk Found · 42 GB (M3) — puffed by byte count',
-    cleaning: 'Mood: Moving to Trash (M4) — cloudy & spiraling dust',
-    pop: 'Celebration: Freed 14.8 GB (M5) — sparkle pop & happy ^ ^',
-    nothingToClean: 'Mood: Nothing to Clean (M6) — crystal clear zZ',
-    blocked: 'Mood: FDA Blocked (M7) — squished against glass pane',
-    whoa: 'Mood: Whoa ≥ 10 GB (M16) — wide eyes & open O mouth',
+    idle: 'Idle',
+    scanning: 'Scanning…',
+    junkFound: 'Found 42 GB of junk',
+    cleaning: 'Moving to Trash…',
+    pop: 'Freed 14.8 GB!',
+    nothingToClean: 'All clean',
+    blocked: 'Needs Full Disk Access',
+    whoa: 'Whoa, a 10 GB file!',
   };
 
   moodButtons.forEach((btn) => {
@@ -1281,7 +1253,7 @@ function initPlayground(pgBubbl) {
       const r = btn.dataset.reaction;
       if (r === 'split') {
         pgBubbl.triggerSplit();
-        moodLabel.textContent = 'Easter Egg (M9): Split into 3 wobbling mini-bubbles!';
+        moodLabel.textContent = 'Split!';
       } else {
         pgBubbl.triggerReaction(r);
       }
@@ -1293,10 +1265,10 @@ function initPlayground(pgBubbl) {
   });
 
   pgBubbl.onSplit = () => {
-    moodLabel.textContent = 'Easter Egg (M9): Split into 3 wobbling mini-bubbles!';
+    moodLabel.textContent = 'Split!';
   };
 
-  reduceToggle.addEventListener('change', (e) => {
+  reduceToggle?.addEventListener('change', (e) => {
     pgBubbl.setReduceMotion(e.target.checked);
   });
 }
