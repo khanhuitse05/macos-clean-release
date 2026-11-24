@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>macos-clean — Free up gigabytes on your Mac, safely</title>
+  <meta
+    name="description"
+    content="A native macOS 26 cleaner. Finds caches, developer junk, big files and app leftovers in seconds — and moves everything to the Trash first."
+  />
+  <meta name="theme-color" content="#0f766e" />
+  <link rel="icon" type="image/svg+xml" href="./assets/app-icon.svg" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="ambient-backdrop" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+    <div class="ambient-orb ambient-orb-3"></div>
+  </div>
+
+  <header class="site-header">
+    <nav class="nav-shell glass-panel" aria-label="Primary navigation">
+      <a class="brand" href="#hero">
+        <img src="./assets/app-icon.svg" alt="" width="32" height="32" class="brand-icon" />
+        <span class="brand-name">macos-clean</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#speed">Speed</a>
+        <a href="#bubbl">Bubbl</a>
+        <a href="#safety">Safety</a>
+      </div>
+
+      <div class="nav-actions">
+        <button type="button" class="icon-btn glass-btn" id="theme-toggle" aria-label="Toggle color theme">
+          <span class="theme-icon" id="theme-icon" aria-hidden="true">☾</span>
+          <span class="theme-label" id="theme-label">Dark</span>
+        </button>
+        <a class="glass-prominent nav-download" href="#download">Download</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="hero-section container">
+      <div class="hero-copy">
+        <h1 class="hero-title">
+          Free up gigabytes.<br />
+          <span class="text-gradient">Without the fear.</span>
+        </h1>
+        <p class="hero-subtitle">
+          A native Mac cleaner that moves everything to the Trash first.
+        </p>
+        <div class="hero-ctas">
+          <a class="cta-primary glass-prominent" href="https://github.com/khanhuitse05/macos-clean-release/releases/latest/download/macos-clean.dmg">
+            <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 3v9.5m0 0l-3.5-3.5M10 12.5l3.5-3.5M4 15.5h12" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            Download for Mac
+          </a>
+          <a class="cta-secondary glass-btn" href="#showcase">Try the demo ↓</a>
+        </div>
+        <p class="hero-caption">Free · macOS 26+ · Apple Silicon &amp; Intel · Notarized by Apple</p>
+      </div>
+
+      <div id="showcase" class="showcase-wrap">
+        <div class="showcase-toolbar-hint">
+          <span class="live-dot" aria-hidden="true"></span>
+          <span>Live demo — click around, it works.</span>
+          <button type="button" class="link-reset" id="reset-demo-btn">Reset</button>
+        </div>
+
+
+        <div class="mac-window" id="app-window" role="region" aria-label="Interactive macos-clean application window preview">
+          <!-- Sidebar -->
+          <aside class="mac-sidebar">
+            <div class="traffic-lights" aria-hidden="true">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+
+            <div class="sidebar-group-label">Clean Up</div>
+            <ul class="sidebar-list" role="tablist" aria-label="App sections">
+              <li>
+                <button type="button" class="sidebar-item is-active" data-section="storage" role="tab" aria-selected="true">
+                  <span class="sb-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="14" height="10" rx="2"/><path d="M3 11.5h14M13.5 13.5h1"/></svg>
+                  </span>
+                  <span class="sb-label">Storage Manager</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="sidebar-item" data-section="largeFiles" role="tab" aria-selected="false">
+                  <span class="sb-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3.5h6.5L15 7v9.5a1 1 0 01-1 1H5a1 1 0 01-1-1v-12a1 1 0 011-1z"/><circle cx="10.5" cy="11.5" r="2.2"/><path d="M12.2 13.2l1.6 1.6"/></svg>
+                  </span>
+                  <span class="sb-label">Large Files</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="sidebar-item" data-section="fileBrowser" role="tab" aria-selected="false">
+                  <span class="sb-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="M7.5 4v12M12.5 4v12"/></svg>
+                  </span>
+                  <span class="sb-label">File Browser</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="sidebar-item" data-section="uninstaller" role="tab" aria-selected="false">
+                  <span class="sb-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="13" height="13" rx="3"/><path d="M7.5 7.5l5 5M12.5 7.5l-5 5"/></svg>
+                  </span>
+                  <span class="sb-label">Uninstaller</span>
+                  <span class="sb-badge" id="uninstaller-badge">2</span>
+                </button>
+              </li>
+            </ul>
+
+            <div class="sidebar-bottom">
+              <button type="button" class="fda-sidebar-btn" id="window-fda-toggle" title="Preview Full Disk Access blocked state or open FDA welcome sheet">
+                <span class="fda-wiggle" aria-hidden="true">🔒</span>
+                <span id="window-fda-label">Full Disk Access is off</span>
+              </button>
+              <div class="sidebar-divider"></div>
+              <button type="button" class="sidebar-item sidebar-trash" data-section="trash" role="tab" aria-selected="false">
+                <span class="sb-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4.5 6h11M7.5 6V4.2h5V6M6.2 6l.7 10.2a1 1 0 001 .8h4.2a1 1 0 001-.8L13.8 6"/></svg>
+                </span>
+                <span class="sb-label">Trash</span>
+                <span class="sb-trash-meta" id="sidebar-trash-meta">1.8 GB</span>
+              </button>
+            </div>
+          </aside>
+
+          <!-- Main Split Detail Column -->
+          <div class="mac-main">
+            <!-- Unified Toolbar -->
+            <header class="mac-toolbar">
+              <div class="mac-title-group">
+                <h2 class="mac-nav-title" id="mac-nav-title">Storage Manager</h2>
+                <p class="mac-nav-subtitle" id="mac-nav-subtitle">38.4 GB found</p>
+              </div>
+              <div class="mac-toolbar-actions" id="mac-toolbar-actions">
+                <!-- Populated dynamically per section by app.js -->
+              </div>
+            </header>
+
+            <!-- Detail Content Area -->
+            <div class="mac-detail-area" id="mac-detail-area">
+              <!-- Top Celebration Toast -->
+              <div class="celebration-toast glass-panel" id="celebration-toast" hidden role="status" aria-live="polite">
+                <span class="toast-icon" id="toast-icon" aria-hidden="true">🗑️</span>
+                <div class="toast-body">
+                  <div class="toast-title" id="toast-title">26.3 GB moved to the Trash</div>
+                  <div class="toast-detail" id="toast-detail">3 items. Empty the Trash to get the space back.</div>
+                </div>
+                <button type="button" class="toast-action" id="toast-empty-btn">Empty Trash…</button>
+                <button type="button" class="toast-close" id="toast-close-btn" aria-label="Dismiss">✕</button>
+              </div>
+
+              <!-- Dynamic Section Views -->
+              <div class="mac-scroll-pane" id="mac-section-content">
+                <!-- Rendered by app.js -->
+              </div>
+
+              <!-- Floating Liquid Glass Bottom SelectionBar -->
+              <div class="selection-bar glass-panel" id="window-selection-bar">
+                <!-- Rendered by app.js -->
+              </div>
+
+              <!-- Floating Draggable Corner Bubbl Overlay -->
+              <div
+                class="hero-bubbl-overlay corner-bottomTrailing"
+                id="hero-bubbl-overlay"
+                title="Drag Bubbl to any corner. Click 5× quickly for an Easter egg!"
+              >
+                <canvas
+                  id="hero-bubbl-canvas"
+                  width="300"
+                  height="248"
+                  aria-label="Bubbl mascot reacting to your current selection"
+                ></canvas>
+                <button type="button" class="leftovers-chip glass-panel" id="hero-leftovers-chip">
+                  <span>✨ 2 removed apps left files behind</span>
+                </button>
+              </div>
+
+              <!-- In-Window Confirmation / FDA Modal Overlay -->
+              <div class="mac-modal-backdrop" id="mac-modal-backdrop" hidden>
+                <div class="mac-modal glass-panel" id="mac-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="mac-modal-title">
+                  <!-- Populated by app.js -->
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Stats strip -->
+    <section class="container stats-strip" aria-label="At a glance">
+      <div class="stat"><strong>7×</strong><span>faster scans</span></div>
+      <div class="stat"><strong>26</strong><span>junk categories</span></div>
+      <div class="stat"><strong>0</strong><span>surprise deletes</span></div>
+      <div class="stat"><strong>≤5%</strong><span>CPU in background</span></div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="section container">
+      <div class="section-header center">
+        <h2>Six tools. One tidy Mac.</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-tile glass-panel">
+          <span class="feature-icon fi-teal" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="14" height="10" rx="2"/><path d="M3 11.5h14M13.5 13.5h1"/></svg></span>
+          <h3>Storage</h3>
+          <p>Caches, logs and dev junk — pre-sorted.</p>
+        </article>
+        <article class="feature-tile glass-panel">
+          <span class="feature-icon fi-sky" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 3.5h6.5L15 7v9.5a1 1 0 01-1 1H5a1 1 0 01-1-1v-12a1 1 0 011-1z"/><circle cx="10.5" cy="11.5" r="2.2"/><path d="M12.2 13.2l1.6 1.6"/></svg></span>
+          <h3>Large Files</h3>
+          <p>Find the giants. Quick Look first.</p>
+        </article>
+        <article class="feature-tile glass-panel">
+          <span class="feature-icon fi-violet" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4" width="15" height="12" rx="2"/><path d="M7.5 4v12M12.5 4v12"/></svg></span>
+          <h3>File Browser</h3>
+          <p>Finder columns with instant sizes.</p>
+        </article>
+        <article class="feature-tile glass-panel">
+          <span class="feature-icon fi-amber" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="6" width="9" height="11" rx="1.6"/><path d="M8 6V4.6A1.6 1.6 0 019.6 3h5.8A1.6 1.6 0 0117 4.6v7.8a1.6 1.6 0 01-1.6 1.6H12"/></svg></span>
+          <h3>Duplicates</h3>
+          <p>Spot identical files, keep one.</p>
+        </article>
+        <article class="feature-tile glass-panel">
+          <span class="feature-icon fi-rose" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="13" height="13" rx="3"/><path d="M7.5 7.5l5 5M12.5 7.5l-5 5"/></svg></span>
+          <h3>Uninstaller</h3>
+          <p>Catches leftovers of deleted apps.</p>
+        </article>
+        <article class="feature-tile glass-panel">
+          <span class="feature-icon fi-slate" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4.5 6h11M7.5 6V4.2h5V6M6.2 6l.7 10.2a1 1 0 001 .8h4.2a1 1 0 001-.8L13.8 6"/></svg></span>
+          <h3>Trash &amp; History</h3>
+          <p>Review, empty, and see what you freed.</p>
+        </article>
+      </div>
+
+      <div class="cleans-panel glass-panel">
+        <div class="cleans-head">
+          <h3>What it cleans</h3>
+          <div class="filter-pills" id="category-filters" role="group" aria-label="Filter categories">
+            <button type="button" class="filter-pill is-active" data-filter="all">All</button>
+            <button type="button" class="filter-pill" data-filter="apple">Xcode &amp; iOS</button>
+            <button type="button" class="filter-pill" data-filter="toolchain">Dev tools</button>
+            <button type="button" class="filter-pill" data-filter="apps">Apps &amp; system</button>
+          </div>
+        </div>
+        <div class="chip-cloud" id="categories-grid"></div>
+        <div class="chip-legend">
+          <span><i class="dot-safe"></i> Selected for you</span>
+          <span><i class="dot-caution"></i> You review first</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Speed -->
+    <section id="speed" class="section container">
+      <div class="speed-layout">
+        <div class="section-header">
+          <h2>Up to <span class="text-gradient">7× faster</span>.</h2>
+          <p>Half a million files, scanned in seconds. The UI never stalls.</p>
+        </div>
+
+        <div class="speed-card glass-panel">
+          <div class="speed-legend">
+            <span><i class="dot-before"></i> Typical scan</span>
+            <span><i class="dot-after"></i> macos-clean</span>
+          </div>
+          <div class="speed-row">
+            <div class="speed-label"><span>Find large files · 505k files</span><b>7.0×</b></div>
+            <div class="speed-bar before" style="--w:100%"><span>17.5 s</span></div>
+            <div class="speed-bar after" style="--w:14.3%"><span>2.5 s</span></div>
+          </div>
+          <div class="speed-row">
+            <div class="speed-label"><span>Measure a 129 GB folder</span><b>3.3×</b></div>
+            <div class="speed-bar before" style="--w:100%"><span>37.3 s</span></div>
+            <div class="speed-bar after" style="--w:30%"><span>11.2 s</span></div>
+          </div>
+          <div class="speed-row">
+            <div class="speed-label"><span>Open a scanned folder</span><b>Instant</b></div>
+            <div class="speed-bar after" style="--w:3%"><span>prefetched</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bubbl -->
+    <section id="bubbl" class="section container">
+      <div class="section-header center">
+        <h2>Meet Bubbl.</h2>
+        <p>Your disk's mood, in a bubble. Poke it.</p>
+      </div>
+
+      <div class="bubbl-playground glass-panel">
+        <div class="bubbl-stage" id="playground-stage">
+          <canvas id="playground-bubbl-canvas" width="420" height="340" aria-label="Bubbl, the macos-clean mascot"></canvas>
+          <span class="readout-badge" id="pg-mood-label">Idle</span>
+        </div>
+
+        <div class="bubbl-controls">
+          <div class="control-group">
+            <h4>Moods</h4>
+            <div class="pill-buttons" id="pg-mood-buttons">
+              <button type="button" class="glass-btn is-active" data-mood="idle">😌 Idle</button>
+              <button type="button" class="glass-btn" data-mood="scanning">🔍 Scanning</button>
+              <button type="button" class="glass-btn" data-mood="junkFound">🫧 Junk found</button>
+              <button type="button" class="glass-btn" data-mood="cleaning">🌀 Cleaning</button>
+              <button type="button" class="glass-btn" data-mood="pop">🎉 Freed!</button>
+              <button type="button" class="glass-btn" data-mood="nothingToClean">💤 All clean</button>
+              <button type="button" class="glass-btn" data-mood="blocked">🔒 Blocked</button>
+              <button type="button" class="glass-btn" data-mood="whoa">😮 Whoa</button>
+            </div>
+          </div>
+          <div class="control-group">
+            <h4>Reactions</h4>
+            <div class="pill-buttons" id="pg-reaction-buttons">
+              <button type="button" class="glass-btn" data-reaction="gulp">Gulp</button>
+              <button type="button" class="glass-btn" data-reaction="bigGulp">Big gulp</button>
+              <button type="button" class="glass-btn" data-reaction="spit">Spit</button>
+              <button type="button" class="glass-btn" data-reaction="dive">Dive</button>
+              <button type="button" class="glass-btn" data-reaction="surface">Surface</button>
+              <button type="button" class="glass-btn" data-reaction="glance">Glance</button>
+              <button type="button" class="glass-btn" data-reaction="split">✨ Split</button>
+            </div>
+          </div>
+          <label class="reduce-motion-toggle">
+            <input type="checkbox" id="pg-reduce-motion" />
+            <span>Reduce Motion</span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety -->
+    <section id="safety" class="section container">
+      <div class="section-header center">
+        <h2>Nothing disappears behind your back.</h2>
+      </div>
+
+      <div class="safety-row">
+        <article class="safety-tile glass-panel">
+          <span class="safety-icon" aria-hidden="true">🗑️</span>
+          <h3>Trash first</h3>
+          <p>Changed your mind? Put Back.</p>
+        </article>
+        <article class="safety-tile glass-panel">
+          <span class="safety-icon" aria-hidden="true">🛡️</span>
+          <h3>System locked</h3>
+          <p>Core folders can't be touched.</p>
+        </article>
+        <article class="safety-tile glass-panel">
+          <span class="safety-icon" aria-hidden="true">✋</span>
+          <h3>Risky stays unticked</h3>
+          <p>Backups and archives wait for you.</p>
+        </article>
+        <article class="safety-tile glass-panel">
+          <span class="safety-icon" aria-hidden="true">🚫</span>
+          <h3>Your exclusions</h3>
+          <p>Mark a folder off-limits, everywhere.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section id="download" class="section container">
+      <div class="download-card glass-panel">
+        <img src="./assets/app-icon.svg" alt="" width="96" height="96" class="dl-icon" />
+        <h2>Get macos-clean</h2>
+        <p class="dl-meta">Free · macOS 26+ · Apple Silicon &amp; Intel</p>
+        <div class="hero-ctas">
+          <a class="cta-primary glass-prominent" href="https://github.com/khanhuitse05/macos-clean-release/releases/latest/download/macos-clean.dmg">
+            <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M10 3v9.5m0 0l-3.5-3.5M10 12.5l3.5-3.5M4 15.5h12" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            Download .dmg
+          </a>
+          <a class="cta-secondary glass-btn" href="https://github.com/khanhuitse05/macos-clean-release/releases/latest" target="_blank" rel="noopener noreferrer">Release notes</a>
+        </div>
+
+        <ol class="steps">
+          <li>
+            <span class="step-num">1</span>
+            <strong>Drag to Applications</strong>
+          </li>
+          <li>
+            <span class="step-num">2</span>
+            <strong>Allow Full Disk Access</strong>
+          </li>
+          <li>
+            <span class="step-num">3</span>
+            <strong>Reopen &amp; press <kbd>⌘R</kbd></strong>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="./assets/app-icon.svg" alt="" width="24" height="24" />
+        <span><strong>macos-clean</strong> · Made for macOS 26</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/khanhuitse05/macos-clean-release/releases" target="_blank" rel="noopener noreferrer">Releases</a>
+        <a href="#download">Download</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

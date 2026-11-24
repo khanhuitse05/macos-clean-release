@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Concept F "Wiped window": macOS app icon grid = 824pt body inset 100pt, drawn on a 120-unit grid. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2DD4BF"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="dust" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#D5DCE5"/>
+      <stop offset="1" stop-color="#BCC6D3"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="1.6" stdDeviation="2.2" flood-color="#042F2E" flood-opacity="0.35"/>
+    </filter>
+    <filter id="iconShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <g filter="url(#iconShadow)">
+    <rect x="100" y="100" width="824" height="824" rx="185" fill="url(#bg)"/>
+  </g>
+  <g transform="translate(100 100) scale(6.866667)">
+    <!-- window -->
+    <rect x="16" y="24" width="88" height="72" rx="10" fill="#F8FAFC" filter="url(#shadow)"/>
+    <path d="M16 44 L104 44" stroke="#E2E8F0" stroke-width="0.8"/>
+    <circle cx="27" cy="34" r="3.5" fill="#FF5F57"/>
+    <circle cx="38" cy="34" r="3.5" fill="#FEBC2E"/>
+    <circle cx="49" cy="34" r="3.5" fill="#28C840"/>
+    <!-- dusty half -->
+    <path d="M16 44.4 L62 44.4 L40 96 L26 96 Q16 96 16 86Z" fill="url(#dust)"/>
+    <path d="M22 52 L30 52 M22 62 L36 62 M22 72 L28 72 M30 80 L24 88 M42 52 L52 52" stroke="#94A3B8" stroke-width="3" stroke-linecap="round"/>
+    <!-- wipe edge -->
+    <path d="M62 44.4 L40 96" stroke="#14B8A6" stroke-width="5" stroke-linecap="round"/>
+    <!-- sparkles on the clean half -->
+    <path d="M80 52 Q80 66 94 66 Q80 66 80 80 Q80 66 66 66 Q80 66 80 52Z" fill="#14B8A6"/>
+    <path d="M92 76 Q92 82 98 82 Q92 82 92 88 Q92 82 86 82 Q92 82 92 76Z" fill="#5EEAD4"/>
+  </g>
+</svg>
