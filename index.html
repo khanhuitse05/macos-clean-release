@@ -29,8 +29,6 @@
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#speed">Speed</a>
-        <a href="#bubbl">Bubbl</a>
-        <a href="#safety">Safety</a>
       </div>
 
       <div class="nav-actions">
@@ -294,83 +292,6 @@
       </div>
     </section>
 
-    <!-- Bubbl -->
-    <section id="bubbl" class="section container">
-      <div class="section-header center">
-        <h2>Meet Bubbl.</h2>
-        <p>Your disk's mood, in a bubble. Poke it.</p>
-      </div>
-
-      <div class="bubbl-playground glass-panel">
-        <div class="bubbl-stage" id="playground-stage">
-          <canvas id="playground-bubbl-canvas" width="420" height="340" aria-label="Bubbl, the macos-clean mascot"></canvas>
-          <span class="readout-badge" id="pg-mood-label">Idle</span>
-        </div>
-
-        <div class="bubbl-controls">
-          <div class="control-group">
-            <h4>Moods</h4>
-            <div class="pill-buttons" id="pg-mood-buttons">
-              <button type="button" class="glass-btn is-active" data-mood="idle">😌 Idle</button>
-              <button type="button" class="glass-btn" data-mood="scanning">🔍 Scanning</button>
-              <button type="button" class="glass-btn" data-mood="junkFound">🫧 Junk found</button>
-              <button type="button" class="glass-btn" data-mood="cleaning">🌀 Cleaning</button>
-              <button type="button" class="glass-btn" data-mood="pop">🎉 Freed!</button>
-              <button type="button" class="glass-btn" data-mood="nothingToClean">💤 All clean</button>
-              <button type="button" class="glass-btn" data-mood="blocked">🔒 Blocked</button>
-              <button type="button" class="glass-btn" data-mood="whoa">😮 Whoa</button>
-            </div>
-          </div>
-          <div class="control-group">
-            <h4>Reactions</h4>
-            <div class="pill-buttons" id="pg-reaction-buttons">
-              <button type="button" class="glass-btn" data-reaction="gulp">Gulp</button>
-              <button type="button" class="glass-btn" data-reaction="bigGulp">Big gulp</button>
-              <button type="button" class="glass-btn" data-reaction="spit">Spit</button>
-              <button type="button" class="glass-btn" data-reaction="dive">Dive</button>
-              <button type="button" class="glass-btn" data-reaction="surface">Surface</button>
-              <button type="button" class="glass-btn" data-reaction="glance">Glance</button>
-              <button type="button" class="glass-btn" data-reaction="split">✨ Split</button>
-            </div>
-          </div>
-          <label class="reduce-motion-toggle">
-            <input type="checkbox" id="pg-reduce-motion" />
-            <span>Reduce Motion</span>
-          </label>
-        </div>
-      </div>
-    </section>
-
-    <!-- Safety -->
-    <section id="safety" class="section container">
-      <div class="section-header center">
-        <h2>Nothing vanishes by surprise.</h2>
-      </div>
-
-      <div class="safety-row">
-        <article class="safety-tile glass-panel">
-          <span class="safety-icon" aria-hidden="true">🗑️</span>
-          <h3>Trash first</h3>
-          <p>Changed your mind? Put Back.</p>
-        </article>
-        <article class="safety-tile glass-panel">
-          <span class="safety-icon" aria-hidden="true">🛡️</span>
-          <h3>System locked</h3>
-          <p>Core folders can't be touched.</p>
-        </article>
-        <article class="safety-tile glass-panel">
-          <span class="safety-icon" aria-hidden="true">✋</span>
-          <h3>Risky stays unticked</h3>
-          <p>Backups and archives wait for you.</p>
-        </article>
-        <article class="safety-tile glass-panel">
-          <span class="safety-icon" aria-hidden="true">🚫</span>
-          <h3>Your exclusions</h3>
-          <p>Mark any folder off-limits.</p>
-        </article>
-      </div>
-    </section>
-
     <!-- Download -->
     <section id="download" class="section container">
       <div class="download-card glass-panel">
@@ -385,18 +306,30 @@
           <a class="cta-secondary glass-btn" href="https://github.com/khanhuitse05/macos-clean-release/releases/latest" target="_blank" rel="noopener noreferrer">Release notes</a>
         </div>
 
-        <ol class="steps">
-          <li>
-            <span class="step-num">1</span>
+        <ol class="steps" aria-label="Install in three steps">
+          <li class="step">
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5A1.5 1.5 0 014 5h3.5L9 6.5h7a1.5 1.5 0 011.5 1.5v6.5A1.5 1.5 0 0116 16H4a1.5 1.5 0 01-1.5-1.5z"/><path d="M10 8.6v4.6M8 11.3l2 2 2-2"/></svg>
+            </span>
+            <span class="step-label">Step 1</span>
             <strong>Drag to Applications</strong>
+            <span class="step-hint">Open the .dmg, drop the app in.</span>
           </li>
-          <li>
-            <span class="step-num">2</span>
+          <li class="step">
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2.8l5.5 2v4.4c0 3.6-2.4 6.3-5.5 7.6-3.1-1.3-5.5-4-5.5-7.6V4.8z"/><path d="M7.6 10.1l1.7 1.7 3.1-3.3"/></svg>
+            </span>
+            <span class="step-label">Step 2</span>
             <strong>Allow Full Disk Access</strong>
+            <span class="step-hint">Privacy &amp; Security › Full Disk Access</span>
           </li>
-          <li>
-            <span class="step-num">3</span>
-            <strong>Reopen &amp; press <kbd>⌘R</kbd></strong>
+          <li class="step">
+            <span class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 10a5.5 5.5 0 11-1.6-3.9"/><path d="M15.5 3.6v3.1h-3.1"/></svg>
+            </span>
+            <span class="step-label">Step 3</span>
+            <strong>Reopen &amp; scan</strong>
+            <span class="step-hint">Press <kbd>⌘</kbd> <kbd>R</kbd> to scan everything.</span>
           </li>
         </ol>
       </div>

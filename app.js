@@ -1119,16 +1119,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   heroBubbl.start();
 
-  const pgCanvas = document.getElementById('playground-bubbl-canvas');
-  const pgBubbl = new BubblEngine(pgCanvas, {
-    logicalWidth: 240,
-    logicalHeight: 194,
-    radius: 54,
-    mood: 'idle',
-  });
-  pgBubbl.start();
-
-  initPlayground(pgBubbl);
   initMacWindowDemo(heroBubbl);
 });
 
@@ -1209,68 +1199,6 @@ function initCategoryExplorer() {
   });
 
   render();
-}
-
-// MARK: - Meet Bubbl Playground
-
-function initPlayground(pgBubbl) {
-  const moodButtons = document.querySelectorAll('#pg-mood-buttons button');
-  const reactionButtons = document.querySelectorAll('#pg-reaction-buttons button');
-  const moodLabel = document.getElementById('pg-mood-label');
-  const reduceToggle = document.getElementById('pg-reduce-motion');
-  const canvas = document.getElementById('playground-bubbl-canvas');
-
-  const labels = {
-    idle: 'Idle',
-    scanning: 'Scanning…',
-    junkFound: 'Found 42 GB of junk',
-    cleaning: 'Moving to Trash…',
-    pop: 'Freed 14.8 GB!',
-    nothingToClean: 'All clean',
-    blocked: 'Needs Full Disk Access',
-    whoa: 'Whoa, a 10 GB file!',
-  };
-
-  moodButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      moodButtons.forEach((b) => b.classList.remove('is-active'));
-      btn.classList.add('is-active');
-      const m = btn.dataset.mood;
-      moodLabel.textContent = labels[m] || m;
-      if (m === 'pop') {
-        pgBubbl.clearPop();
-        pgBubbl.setMood('junkFound', 14.8 * GB);
-        pgBubbl.triggerPop(14.8 * GB);
-      } else {
-        pgBubbl.clearPop();
-        pgBubbl.setMood(m, m === 'whoa' || m === 'junkFound' ? 42 * GB : 0);
-      }
-    });
-  });
-
-  reactionButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const r = btn.dataset.reaction;
-      if (r === 'split') {
-        pgBubbl.triggerSplit();
-        moodLabel.textContent = 'Split!';
-      } else {
-        pgBubbl.triggerReaction(r);
-      }
-    });
-  });
-
-  canvas.addEventListener('click', () => {
-    pgBubbl.pokeOrTap();
-  });
-
-  pgBubbl.onSplit = () => {
-    moodLabel.textContent = 'Split!';
-  };
-
-  reduceToggle?.addEventListener('change', (e) => {
-    pgBubbl.setReduceMotion(e.target.checked);
-  });
 }
 
 // MARK: - Interactive macOS 26 Window Controller
